@@ -19,6 +19,8 @@ public class Character3DController : MonoBehaviour
     Animator _animator;
     Weapon _currentWeapon;
 
+    CharacterController _characterController;
+
     int _attackHash;
     bool _attackState;
     float _attackTime;
@@ -30,6 +32,8 @@ public class Character3DController : MonoBehaviour
 
     private void Awake()
     {
+        _characterController = GetComponent<CharacterController>();
+
         _input = GetComponent<StarterAssetsInputs>();
         _animator = GetComponent<Animator>();
 
@@ -102,7 +106,10 @@ public class Character3DController : MonoBehaviour
     }
 
 
-
+    public CharacterController GetCharacterController()
+    {
+        return _characterController;
+    }
 
 
     //private void OnDrawGizmos()   Sirve para dibujar en el unity y poder ver mejor algunas cosas
